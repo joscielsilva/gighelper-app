@@ -1,1 +1,2 @@
-# gighelper-app
+Definição do Problema
+Atualmente, motoristas e entregadores de aplicativos (Uber, 99, iFood) enfrentam a "ilusão do faturamento bruto". As plataformas exibem o valor total ganho, mas não descontam custos operacionais críticos como combustível, manutenção proativa, depreciação do veículo e impostos. Sem uma ferramenta de cálculo imediato, muitos profissionais operam com margens de lucro desconhecidas, muitas vezes "pagando para trabalhar" sem perceber, o que gera instabilidade financeira e stress.
