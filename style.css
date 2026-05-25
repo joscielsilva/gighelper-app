@@ -139,3 +139,13 @@ button:hover {
 .status-vermelho { background-color: #fadbd8; color: #78281f; }
 .status-amarelo { background-color: #fdebd0; color: #7e5109; }
 .status-verde { background-color: #d4efdf; color: #145a32; }
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.config-section {
+    background: #ebf5fb; /
+    border: 1px solid #aec6cf;
+}
