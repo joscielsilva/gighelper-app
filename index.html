@@ -3,83 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GigHelper - Gestor Financeiro</title>
+    <title>GigHelper 2.0 - Gestor Financeiro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>GigHelper 2.0</h1>
-            <p>O assistente financeiro do motorista de app</p>
+            <div class="logo-area">
+                <i class="fas fa-chart-line logo-icon"></i>
+                <h1>GigHelper <span>2.0</span></h1>
+            </div>
+            <p>O assistente financeiro inteligente do motorista de app</p>
         </header>
 
         <main>
             <section class="card config-section">
-                <h2>1. Configuração do Veículo</h2>
+                <div class="card-header">
+                    <i class="fas fa-car-side"></i>
+                    <h2>1. Configuração do Veículo</h2>
+                </div>
                 <div class="input-grid">
                     <div class="input-group">
                         <label for="consumoMedio">Consumo (km/L)</label>
-                        <input type="number" id="consumoMedio" value="12" step="0.1">
+                        <div class="input-with-icon">
+                            <i class="fas fa-gas-pump"></i>
+                            <input type="number" id="consumoMedio" value="12" step="0.1">
+                        </div>
                     </div>
                     <div class="input-group">
                         <label for="depreciacaoKm">Manutenção (R$/km)</label>
-                        <input type="number" id="depreciacaoKm" value="0.15" step="0.01">
+                        <div class="input-with-icon">
+                            <i class="fas fa-tools"></i>
+                            <input type="number" id="depreciacaoKm" value="0.15" step="0.01">
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section class="card form-section">
-                <h2>2. Dados do Turno</h2>
+                <div class="card-header">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h2>2. Dados do Turno</h2>
+                </div>
+                
                 <div class="input-group">
                     <label for="ganhoBruto">Faturamento Total do Dia (R$)</label>
-                    <input type="number" id="ganhoBruto" placeholder="Ex: 250.00" step="0.01">
+                    <div class="input-with-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <input type="number" id="ganhoBruto" placeholder="Ex: 250.00" step="0.01">
+                    </div>
                 </div>
 
                 <div class="input-group">
                     <label for="kmRodado">Quilometragem Total (km)</label>
-                    <input type="number" id="kmRodado" placeholder="Ex: 150">
+                    <div class="input-with-icon">
+                        <i class="fas fa-road"></i>
+                        <input type="number" id="kmRodado" placeholder="Ex: 150">
+                    </div>
                 </div>
 
                 <div class="input-group">
                     <label for="precoCombustivel">Preço do Combustível (R$/L)</label>
-                    <input type="number" id="precoCombustivel" placeholder="Ex: 5.50" step="0.01">
+                    <div class="input-with-icon">
+                        <i class="fas fa-tag"></i>
+                        <input type="number" id="precoCombustivel" placeholder="Ex: 5.50" step="0.01">
+                    </div>
                 </div>
 
                 <div class="input-group">
                     <label for="tempoTurno">Tempo de Turno (Horas)</label>
-                    <input type="number" id="tempoTurno" placeholder="Ex: 8">
+                    <div class="input-with-icon">
+                        <i class="fas fa-clock"></i>
+                        <input type="number" id="tempoTurno" placeholder="Ex: 8">
+                    </div>
                 </div>
 
-                <button id="btnCalcular" onclick="calcularLucro()">Calcular Lucro Real</button>
+                <button id="btnCalcular" class="btn-premium" onclick="calcularLucro()">
+                    <i class="fas fa-calculator"></i> Calcular Lucro Real
+                </button>
             </section>
 
             <section class="card dashboard-section">
-                <h2>3. Veredito do Turno</h2>
+                <div class="card-header">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h2>3. Veredito do Turno</h2>
+                </div>
                 
                 <div id="semaforo" class="status-alerta text-center">
                     Aguardando dados...
                 </div>
 
                 <div class="results-grid">
-                    <div class="result-box">
-                        <h3>Custo Combustível</h3>
-                        <p id="resCombustivel">R$ 0,00</p>
+                    <div class="result-tile">
+                        <div class="tile-icon azul"><i class="fas fa-funnel-dollar"></i></div>
+                        <div class="tile-info">
+                            <h3>Custo Combustível</h3>
+                            <p id="resCombustivel">R$ 0,00</p>
+                        </div>
                     </div>
-                    <div class="result-box">
-                        <h3>Depreciação (Carro)</h3>
-                        <p id="resDepreciacao">R$ 0,00</p>
+                    <div class="result-tile">
+                        <div class="tile-icon laranja"><i class="fas fa-wrench"></i></div>
+                        <div class="tile-info">
+                            <h3>Depreciação (Carro)</h3>
+                            <p id="resDepreciacao">R$ 0,00</p>
+                        </div>
                     </div>
-                    <div class="result-box importante">
-                        <h3>Lucro Líquido Real</h3>
-                        <p id="resLucroLiquido">R$ 0,00</p>
+                    
+                    <div class="result-tile grande lucro-total">
+                        <div class="tile-icon verde"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div class="tile-info">
+                            <h3>Lucro Líquido Real (Dia)</h3>
+                            <p id="resLucroLiquido" class="lucro-destaque">R$ 0,00</p>
+                        </div>
                     </div>
-                    <div class="result-box">
-                        <h3>Lucro por Hora</h3>
-                        <p id="resLucroHora">R$ 0,00/h</p>
+                    
+                    <div class="result-tile">
+                        <div class="tile-icon ciano"><i class="fas fa-hourglass-half"></i></div>
+                        <div class="tile-info">
+                            <h3>Lucro por Hora</h3>
+                            <p id="resLucroHora">R$ 0,00/h</p>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
+        
+        <footer>
+            <p>© 2024 Josciel Silva & Grupo - Projeto Faculdade</p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>
