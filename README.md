@@ -13,3 +13,4 @@ O **GigHelper** é uma aplicação web desenvolvida como MVP para as Sprints 1 e
 * HTML5 (Estrutura e inputs móveis)
 * CSS3 (Interface responsiva focada em dispositivos móveis)
 * JavaScript Vanilla (Lógica matemática e manipulação de DOM)
+* 
