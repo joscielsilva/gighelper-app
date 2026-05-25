@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigHelper - Gestor Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GigHelper 2.0</h1>
+            <p>O assistente financeiro do motorista de app</p>
+        </header>
+
+        <main>
+            <section class="card form-section">
+                <h2>Dados do Turno</h2>
+                <div class="input-group">
+                    <label for="ganhoBruto">Faturação Total do Dia (R$)</label>
+                    <input type="number" id="ganhoBruto" placeholder="Ex: 250.00" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label for="kmRodado">Quilometragem Total (km)</label>
+                    <input type="number" id="kmRodado" placeholder="Ex: 150">
+                </div>
+
+                <div class="input-group">
+                    <label for="precoCombustivel">Preço do Combustível (R$/L)</label>
+                    <input type="number" id="precoCombustivel" placeholder="Ex: 5.50" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label for="tempoTurno">Tempo de Turno (Horas)</label>
+                    <input type="number" id="tempoTurno" placeholder="Ex: 8">
+                </div>
+
+                <button id="btnCalcular" onclick="calcularLucro()">Calcular Lucro Real</button>
+            </section>
+
+            <section class="card dashboard-section">
+                <h2>Veredito do Turno</h2>
+                
+                <div id="semaforo" class="status-alerta text-center">
+                    Aguardando dados...
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-box">
+                        <h3>Custo Combustível</h3>
+                        <p id="resCombustivel">R$ 0,00</p>
+                    </div>
+                    <div class="result-box">
+                        <h3>Depreciação (Carro)</h3>
+                        <p id="resDepreciacao">R$ 0,00</p>
+                    </div>
+                    <div class="result-box importante">
+                        <h3>Lucro Líquido Real</h3>
+                        <p id="resLucroLiquido">R$ 0,00</p>
+                    </div>
+                    <div class="result-box">
+                        <h3>Lucro por Hora</h3>
+                        <p id="resLucroHora">R$ 0,00/h</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
